@@ -8,13 +8,9 @@ import ctypes as ct
 import numpy as np
 
 def load_library(basename):
-    if platform.system() == 'Windows':
-       ext = '.dll'
-    else:
-       ext = sysconfig.get_config_var('SO')
     return ct.cdll.LoadLibrary(os.path.join(
         os.path.dirname(__file__) or os.path.curdir,
-        basename + ext))
+        basename + sysconfig.get_config_var('SO')))
 
 _cudamat = load_library('libcudamat')
 
