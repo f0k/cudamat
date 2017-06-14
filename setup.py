@@ -2,7 +2,7 @@
 
 import os
 # on Windows, we need the original PATH without Anaconda's compiler in it:
-PATH = os.environ.get('PATH')
+PATH = os.environ.get('PATH', '')
 from distutils.spawn import find_executable
 from setuptools import setup, find_packages, Extension
 import distutils.ccompiler
