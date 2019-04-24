@@ -55,7 +55,7 @@ class NVCCCompiler(distutils.ccompiler.CCompiler):
 
     def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts):
         assert ext == '.cu'
-        self.spawn(['nvcc', '-O'] + cc_args + [src, '-o', obj] +
+        self.spawn(['nvcc', '-O3'] + cc_args + [src, '-o', obj] +
                    (['--compiler-options=-fPIC']
                     if os.name != 'nt' else []) +
                    extra_postargs + pp_opts)
